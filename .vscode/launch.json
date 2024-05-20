@@ -10,6 +10,7 @@
 			"request": "launch",
 			"runtimeExecutable": "${execPath}",
 			"args": [
+				"${input:testLocation}",
 				"--extensionDevelopmentPath=${workspaceFolder}"
 			],
 			"outFiles": [
@@ -17,5 +18,13 @@
 			],
 			"preLaunchTask": "npm: watch"
 		}
-	]
+	],
+  "inputs": [
+    {
+      "id": "testLocation",
+      "description": "Absolute path to directory where you want to debug extension",
+      "default": "./sandbox",
+      "type": "promptString"
+    }
+  ]
 }

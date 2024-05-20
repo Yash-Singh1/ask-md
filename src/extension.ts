@@ -56,7 +56,7 @@ async function codeComplete(model: string, apiKey: string | undefined) {
   const completion = await openai.chat.completions.create(
     {
       model,
-      temperature: 0.5,
+      temperature: 0.4,
       max_tokens: 1000,
       stream: true,
       messages: [
@@ -91,11 +91,11 @@ export async function activate(context: vscode.ExtensionContext) {
 
   const disposables = [
     vscode.commands.registerCommand("ask-md.complete-8b", async () => {
-			await codeComplete(MODEL_8B, apiKey);
-		}),
+      await codeComplete(MODEL_8B, apiKey);
+    }),
     vscode.commands.registerCommand("ask-md.complete-70b", async () => {
-			await codeComplete(MODEL_70B, apiKey);
-		}),
+      await codeComplete(MODEL_70B, apiKey);
+    }),
     vscode.commands.registerCommand("ask-md.set-api-key", () => {
       getAPIKey(context).then((value) => {
         if (value) {
