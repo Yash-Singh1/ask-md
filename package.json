@@ -16,22 +16,60 @@
   "contributes": {
     "commands": [
       {
-        "command": "ask-md.complete-8b",
+        "command": "ask-md.complete-small",
         "title": "Ask.md: LLM Basic Completion Request"
       },
       {
-        "command": "ask-md.complete-70b",
+        "command": "ask-md.configure-small",
+        "title": "Ask.md: Configure LLM Basic Model"
+      },
+      {
+        "command": "ask-md.complete-large",
         "title": "Ask.md: LLM Advanced Completion Request"
       },
       {
+        "command": "ask-md.configure-large",
+        "title": "Ask.md: Configure LLM Advanced Model"
+      },
+      {
         "command": "ask-md.set-api-key",
-        "title": "Ask.md: Set Groq API Key"
+        "title": "Ask.md: Set LLM Provider API Key"
       },
       {
         "command": "ask-md.delete-api-key",
-        "title": "Ask.md: Delete Groq API Key"
+        "title": "Ask.md: Delete LLM Provider API Key"
+      },
+      {
+        "command": "ask-md.setup",
+        "title": "Ask.md: Setup model configuration"
       }
-    ]
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "Ask.md",
+      "properties": {
+        "ask-md.api-base-small": {
+          "type": "string",
+          "default": "https://api.groq.com/openai/v1",
+          "description": "Base URL for the small model"
+        },
+        "ask-md.api-base-large": {
+          "type": "string",
+          "default": "https://api.groq.com/openai/v1",
+          "description": "Base URL for the large model"
+        },
+        "ask-md.model-small": {
+          "type": "string",
+          "default": "llama3-8b-8192",
+          "description": "Model Identifier for the small model"
+        },
+        "ask-md.model-large": {
+          "type": "string",
+          "default": "llama3-70b-8192",
+          "description": "Model Identifier for the large model"
+        }
+      }
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
